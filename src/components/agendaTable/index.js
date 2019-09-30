@@ -44,7 +44,7 @@ class AgendaTableComponent extends React.Component {
       earliestStartTime.setMinutes(0);
 
       if (firstStartTime >= earliestStartTime && this.props.agenda.dayShowing === 'Full Agenda') {
-        startBuffer.push((<div className="startBuffer" style={{ height: this.parseWidth(earliestStartTime, firstStartTime) + 'px' }}></div>));
+        startBuffer.push((<div className="startBuffer d-none d-sm-block" style={{ height: this.parseWidth(earliestStartTime, firstStartTime) + 'px' }}></div>));
       }
       return (
         <div className="row" >
@@ -100,7 +100,7 @@ class AgendaTableComponent extends React.Component {
       const date2 = new Date(endDate);
       const diffTime = Math.abs(date2 - date1);
       const diffMinutes = Math.ceil(diffTime / (1000 * 60)) / 15;
-      return diffMinutes * 50;
+      return diffMinutes * 70;
     } else {
       return 100;
     }
@@ -109,9 +109,9 @@ class AgendaTableComponent extends React.Component {
     if (event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       return (
         <div className={event.category + ' border col ' + addClass} style={{ height: this.parseWidth(event.startTime, event.endTime) + 'px' }}>
-          <h3><a href="">{event.title}</a></h3>
-          <p>{this.parseTime(event.startTime, event.endTime)}</p>
-          <p>{event.location}</p>
+          <h3 className="m-0"><a href="">{event.title}</a></h3>
+          <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
+          <p className="m-0">{event.location}</p>
         </div>
       )
     }
@@ -125,7 +125,7 @@ class AgendaTableComponent extends React.Component {
           {sessionData.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
-                <div className={"col"} >
+                <div className={"col-sm"} >
                   <div className=" border header">{session.title}</div>
                   {
                     this.parseEvents(session, index)

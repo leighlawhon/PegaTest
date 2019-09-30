@@ -42,7 +42,7 @@ class DayToggle extends React.Component {
             <DropdownItem onClick={this.select}>Monday 4</DropdownItem>
             <DropdownItem onClick={this.select}>Tuesday 5</DropdownItem>
             <DropdownItem onClick={this.select}>Wednesday 6</DropdownItem>
-            <DropdownItem onClick={this.select}>Thursday 4</DropdownItem>
+            <DropdownItem onClick={this.select}>Thursday 7</DropdownItem>
           </DropdownMenu>
         </ButtonDropdown>
       </Container>
