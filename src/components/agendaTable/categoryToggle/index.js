@@ -1,7 +1,9 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { toggleCategory } from '../../../containers/Agenda/actions'
+import { connect } from "react-redux";
 
-export default class CategoryToggle extends React.Component {
+class CategoryToggle extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +13,8 @@ export default class CategoryToggle extends React.Component {
     };
   }
 
-  toggle() {
+  toggle(event) {
+    this.props.toggleCategory(event.target.innerText);
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
@@ -24,14 +27,26 @@ export default class CategoryToggle extends React.Component {
           Category
         </DropdownToggle>
         <DropdownMenu>
+          <DropdownItem >Full Agenda</DropdownItem>
           <DropdownItem >Travel & Registration</DropdownItem>
           <DropdownItem>Breaks & Meals</DropdownItem>
-          <DropdownItem>PegaWORLD main conference events</DropdownItem>
+          <DropdownItem>PegaWORLD</DropdownItem>
           <DropdownItem>Mobile</DropdownItem>
           <DropdownItem>User Centered Design</DropdownItem>
           <DropdownItem>Customer Centricity</DropdownItem>
+          <DropdownItem>Special Events</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
   }
 }
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleCategory: (text) => dispatch(toggleCategory(text)),
+  }
+
+};
+
+export default connect(null, mapDispatchToProps)(CategoryToggle);

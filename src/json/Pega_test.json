@@ -26,7 +26,7 @@
         "startTime": "Nov 3 2019 3:00 PM",
         "endTime": "Nov 3 2019 3:30 PM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Customer Panel",
@@ -58,7 +58,7 @@
         "startTime": "Nov 3 2019 6:30 PM",
         "endTime": null,
         "track": null,
-        "category": "SpecialEvent"
+        "category": "Special Events"
       }
     ]
   },
@@ -81,7 +81,7 @@
         "startTime": "Nov 4 2019 6:00 PM",
         "endTime": null,
         "track": null,
-        "category": "SpecialEvent"
+        "category": "Special Events"
       }
     ]
   },
@@ -104,7 +104,7 @@
         "startTime": "Nov 5 2019 6:00 PM",
         "endTime": null,
         "track": null,
-        "category": "SpecialEvent"
+        "category": "Special Events"
       }
     ]
   },
@@ -119,10 +119,10 @@
         "startTime": "Nov 6 2019 7:00:00 AM",
         "endTime": "Nov 6 2019 8:00 AM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
-        "title": "Overview",
+        "title": "Mobile: Overview",
         "location": "Room K",
         "startTime": "Nov 6 2019 8:15 AM",
         "endTime": "Nov 6 2019 8:45 AM",
@@ -130,7 +130,7 @@
         "category": "Mobile"
       },
       {
-        "title": "Overview",
+        "title": "User Centered Design: Overview",
         "location": "Room K",
         "startTime": "Nov 6 2019 8:45 AM",
         "endTime": "Nov 6 2019 9:15 AM",
@@ -151,7 +151,7 @@
         "startTime": "Nov 6 2019 10:35 AM",
         "endTime": "Nov 6 2019 10:50 AM",
         "track": "track1",
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Nuts and Bolts",
@@ -162,7 +162,7 @@
         "category": "User Centered Design"
       },
       {
-        "title": "Overview",
+        "title": "User Centered Design: Overview",
         "location": "Room L",
         "startTime": "Nov 6 2019 8:15 AM",
         "endTime": "Nov 6 2019 8:45 AM",
@@ -170,7 +170,7 @@
         "category": "User Centered Design"
       },
       {
-        "title": "Overview",
+        "title": "Mobile: Overview",
         "location": "Room L",
         "startTime": "Nov 6 2019 8:45 AM",
         "endTime": "Nov 6 2019 9:00 AM",
@@ -191,7 +191,7 @@
         "startTime": "Nov 6 2019 10:45 AM",
         "endTime": "Nov 6 2019 11:00 AM",
         "track": "track2",
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Publishing an App & Offline Considerations",
@@ -207,14 +207,14 @@
         "startTime": "Nov 6 2019 12:20 PM",
         "endTime": "Nov 6 2019 1:05 PM",
         "track": null,
-        "category": "FOod"
+        "category": "Breaks & Meals"
       },
       {
         "title": "It's all about the User Experience",
         "location": "Room K",
         "startTime": "Nov 6 2019 1:05 PM",
         "endTime": "Nov 6 2019 2:35 PM",
-        "track": "track2",
+        "track": "track1",
         "category": "Mobile"
       },
       {
@@ -222,7 +222,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 2:35 PM",
         "endTime": "Nov 6 2019 3:55 PM",
-        "track": "track2",
+        "track": "track1",
         "category": "Mobile"
       },
       {
@@ -238,7 +238,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 2:35 PM",
         "endTime": "Nov 6 2019 3:55 PM",
-        "track": "UCD",
+        "track": "track2",
         "category": "User Centered Design"
       },
       {
@@ -247,7 +247,7 @@
         "startTime": "Nov 6 2019 3:55 PM",
         "endTime": "Nov 6 2019 4:15 PM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Upgrade Information",
@@ -271,7 +271,7 @@
         "startTime": "Nov 6 2019 7:30 PM",
         "endTime": null,
         "track": null,
-        "category": "SpecialEvent"
+        "category": "Special Events"
       }
     ]
   },
@@ -286,7 +286,7 @@
         "startTime": "Nov 7 2019 7:00 AM",
         "endTime": "Nov 7 2019 8:00 AM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Breakouts",
@@ -302,7 +302,7 @@
         "startTime": "Nov 7 2019 10:15 AM",
         "endTime": "Nov 7 2019 10:45 AM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Breakouts",
@@ -318,7 +318,7 @@
         "startTime": "Nov 7 2019 12:45 PM",
         "endTime": "Nov 7 2019 1:45 PM",
         "track": null,
-        "category": "Food"
+        "category": "Breaks & Meals"
       },
       {
         "title": "Action Planning Debrief",

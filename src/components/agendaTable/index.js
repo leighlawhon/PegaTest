@@ -43,8 +43,7 @@ class AgendaTableComponent extends React.Component {
       earliestStartTime.setHours(7);
       earliestStartTime.setMinutes(0);
 
-      if (firstStartTime >= earliestStartTime) {
-        console.log(earliestStartTime, firstStartTime)
+      if (firstStartTime >= earliestStartTime && this.props.agenda.dayShowing === 'Full Agenda') {
         startBuffer.push((<div className="startBuffer" style={{ height: this.parseWidth(earliestStartTime, firstStartTime) + 'px' }}></div>));
       }
       return (
@@ -96,7 +95,7 @@ class AgendaTableComponent extends React.Component {
   }
 
   parseWidth(startDate, endDate) {
-    if (endDate !== null) {
+    if (endDate !== null && this.props.agenda.dayShowing === 'Full Agenda') {
       const date1 = new Date(startDate);
       const date2 = new Date(endDate);
       const diffTime = Math.abs(date2 - date1);
@@ -107,13 +106,15 @@ class AgendaTableComponent extends React.Component {
     }
   }
   section(event, addClass) {
-    return (
-      <div className={event.category + ' border col ' + addClass} style={{ height: this.parseWidth(event.startTime, event.endTime) + 'px' }}>
-        <h3>{event.title}</h3>
-        <p>{this.parseTime(event.startTime, event.endTime)}</p>
-        <p>{event.location}</p>
-      </div>
-    )
+    if (event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
+      return (
+        <div className={event.category + ' border col ' + addClass} style={{ height: this.parseWidth(event.startTime, event.endTime) + 'px' }}>
+          <h3><a href="">{event.title}</a></h3>
+          <p>{this.parseTime(event.startTime, event.endTime)}</p>
+          <p>{event.location}</p>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -122,7 +123,7 @@ class AgendaTableComponent extends React.Component {
         <AgendaHeaderComponent />
         <div className="row">
           {sessionData.map((session, index) => {
-            if (session.title === this.props.agendaReducer.agendaShowing || this.props.agendaReducer.agendaShowing === 'Full Agenda') {
+            if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
                 <div className={"col"} >
                   <div className=" border header">{session.title}</div>
