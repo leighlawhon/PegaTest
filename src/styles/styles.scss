@@ -1,0 +1,11 @@
+@import 'variables';
+body{
+  background-color: $app-bkg;
+}
+
+.bg-blue {
+  background-color: $app-header;
+}
+.bg-white {
+  background-color: white;
+}

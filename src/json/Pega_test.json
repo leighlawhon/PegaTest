@@ -1,0 +1,341 @@
+[
+  {
+    "title": "Sunday 3",
+    "startTime": "Nov 3 2019 1:00 PM",
+    "endTime": "Nov 3 2019 6:00 PM",
+    "events": [
+      {
+        "title": "Opening Remarks",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 1:00 PM",
+        "endTime": "Nov 3 2019 1:30 PM",
+        "track": null,
+        "category": "PegaWORLD"
+      },
+      {
+        "title": "Strategic Applications and Competitive Intelligence ",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 1:30 PM",
+        "endTime": "Nov 3 2019 3:00 PM",
+        "track": null,
+        "category": "PegaWORLD"
+      },
+      {
+        "title": "Break",
+        "location": "",
+        "startTime": "Nov 3 2019 3:00 PM",
+        "endTime": "Nov 3 2019 3:30 PM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Customer Panel",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 3:30 PM",
+        "endTime": "Nov 3 2019 4:30 PM",
+        "track": null,
+        "category": "Centricity"
+      },
+      {
+        "title": "Key Messages",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 4:30 PM",
+        "endTime": "Nov 3 2019 5:15 PM",
+        "track": null,
+        "category": "Centricity"
+      },
+      {
+        "title": "Don't Blow it!",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 5:15 PM",
+        "endTime": "Nov 3 2019 5:45 PM",
+        "track": null,
+        "category": "Centricity"
+      },
+      {
+        "title": "Reception & Dinner",
+        "location": "Room J1",
+        "startTime": "Nov 3 2019 6:30 PM",
+        "endTime": null,
+        "track": null,
+        "category": "SpecialEvent"
+      }
+    ]
+  },
+  {
+    "title": "Monday 4",
+    "startTime": "Nov 3 2019 8:00 AM",
+    "endTime": "Nov 3 2019 6:00 PM",
+    "events": [
+      {
+        "title": "PegaWORLD",
+        "location": null,
+        "startTime": "Nov 4 2019 8:00 AM",
+        "endTime": "Nov 4 2019 6:00 PM",
+        "track": null,
+        "category": "PegaWORLD"
+      },
+      {
+        "title": "Customer Appreciation Event — Universal Studios",
+        "location": "Universal Studios, Orlando",
+        "startTime": "Nov 4 2019 6:00 PM",
+        "endTime": null,
+        "track": null,
+        "category": "SpecialEvent"
+      }
+    ]
+  },
+  {
+    "title": "Tuesday 5",
+    "startTime": "Nov 5 2019 8:00 AM",
+    "endTime": "Nov 5 2019 6:00 PM",
+    "events": [
+      {
+        "title": "PegaWORLD",
+        "location": null,
+        "startTime": "Nov 5 2019 8:00 AM",
+        "endTime": "Nov 5 2019 6:00 pM",
+        "track": null,
+        "category": "PegaWORLD"
+      },
+      {
+        "title": "Design Track Event —  Kayak Eco-Tour",
+        "location": "Kayak Eco-Tour, Shingle Creek",
+        "startTime": "Nov 5 2019 6:00 PM",
+        "endTime": null,
+        "track": null,
+        "category": "SpecialEvent"
+      }
+    ]
+  },
+  {
+    "title": "Wednesday 6",
+    "startTime": "Nov 6 2019 8:00 AM",
+    "endTime": "Nov 6 2019 6:00 PM",
+    "events": [
+      {
+        "title": "Breakfast",
+        "location": null,
+        "startTime": "Nov 6 2019 7:00:00 AM",
+        "endTime": "Nov 6 2019 8:00 AM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Overview",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 8:15 AM",
+        "endTime": "Nov 6 2019 8:45 AM",
+        "track": "track1",
+        "category": "Mobile"
+      },
+      {
+        "title": "Overview",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 8:45 AM",
+        "endTime": "Nov 6 2019 9:15 AM",
+        "track": "track1",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Implementations",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 9:15 AM",
+        "endTime": "Nov 6 2019 10:35 AM",
+        "track": "track1",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Break",
+        "location": null,
+        "startTime": "Nov 6 2019 10:35 AM",
+        "endTime": "Nov 6 2019 10:50 AM",
+        "track": "track1",
+        "category": "Food"
+      },
+      {
+        "title": "Nuts and Bolts",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 10:50 AM",
+        "endTime": "Nov 6 2019 12:20 PM",
+        "track": "track1",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Overview",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 8:15 AM",
+        "endTime": "Nov 6 2019 8:45 AM",
+        "track": "track2",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Overview",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 8:45 AM",
+        "endTime": "Nov 6 2019 9:00 AM",
+        "track": "track2",
+        "category": "Mobile"
+      },
+      {
+        "title": "It's all about the User Experience",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 9:15 AM",
+        "endTime": "Nov 6 2019 10:45 AM",
+        "track": "track2",
+        "category": "Mobile"
+      },
+      {
+        "title": "Break",
+        "location": null,
+        "startTime": "Nov 6 2019 10:45 AM",
+        "endTime": "Nov 6 2019 11:00 AM",
+        "track": "track2",
+        "category": "Food"
+      },
+      {
+        "title": "Publishing an App & Offline Considerations",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 11:00 AM",
+        "endTime": "Nov 6 2019 12:20 PM",
+        "track": "track2",
+        "category": "Mobile"
+      },
+      {
+        "title": "Lunch",
+        "location": null,
+        "startTime": "Nov 6 2019 12:20 PM",
+        "endTime": "Nov 6 2019 1:05 PM",
+        "track": null,
+        "category": "FOod"
+      },
+      {
+        "title": "It's all about the User Experience",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 1:05 PM",
+        "endTime": "Nov 6 2019 2:35 PM",
+        "track": "track2",
+        "category": "Mobile"
+      },
+      {
+        "title": "Publishing an App & Offline Considerations",
+        "location": "Room K",
+        "startTime": "Nov 6 2019 2:35 PM",
+        "endTime": "Nov 6 2019 3:55 PM",
+        "track": "track2",
+        "category": "Mobile"
+      },
+      {
+        "title": "Nuts & Bolts",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 1:05 PM",
+        "endTime": "Nov 6 2019 2:35 PM",
+        "track": "track2",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Implementations",
+        "location": "Room L",
+        "startTime": "Nov 6 2019 2:35 PM",
+        "endTime": "Nov 6 2019 3:55 PM",
+        "track": "UCD",
+        "category": "User Centered Design"
+      },
+      {
+        "title": "Break",
+        "location": null,
+        "startTime": "Nov 6 2019 3:55 PM",
+        "endTime": "Nov 6 2019 4:15 PM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Upgrade Information",
+        "location": "Room J1",
+        "startTime": "Nov 6 2019 4:15 PM",
+        "endTime": "Nov 6 2019 5:30 PM",
+        "track": null,
+        "category": "Session"
+      },
+      {
+        "title": "Introduction/Q&A",
+        "location": "Room J1",
+        "startTime": "Nov 6 2019 5:30 PM",
+        "endTime": "Nov 6 2019 6:30 PM",
+        "track": null,
+        "category": "Customer Centricity"
+      },
+      {
+        "title": "Design Track Event — Dinner",
+        "location": "Marriott Orlando World Center",
+        "startTime": "Nov 6 2019 7:30 PM",
+        "endTime": null,
+        "track": null,
+        "category": "SpecialEvent"
+      }
+    ]
+  },
+  {
+    "title": "Thursday 7",
+    "startTime": "Nov 6 2019 8:00 AM",
+    "endTime": "Nov 6 2019 6:00 PM",
+    "events": [
+      {
+        "title": "Breakfast",
+        "location": null,
+        "startTime": "Nov 7 2019 7:00 AM",
+        "endTime": "Nov 7 2019 8:00 AM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Breakouts",
+        "location": "Room J1",
+        "startTime": "Nov 7 2019 8:15 AM",
+        "endTime": "Nov 7 2019 10:15 AM",
+        "track": null,
+        "category": "Customer Centricity"
+      },
+      {
+        "title": "Break",
+        "location": null,
+        "startTime": "Nov 7 2019 10:15 AM",
+        "endTime": "Nov 7 2019 10:45 AM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Breakouts",
+        "location": "Room J1",
+        "startTime": "Nov 7 2019 10:45 AM",
+        "endTime": "Nov 7 2019 12:45 PM",
+        "track": null,
+        "category": "Customer Centricity"
+      },
+      {
+        "title": "Lunch",
+        "location": null,
+        "startTime": "Nov 7 2019 12:45 PM",
+        "endTime": "Nov 7 2019 1:45 PM",
+        "track": null,
+        "category": "Food"
+      },
+      {
+        "title": "Action Planning Debrief",
+        "location": "Room J1",
+        "startTime": "Nov 7 2019 1:45 PM",
+        "endTime": "Nov 7 2019 2:30 PM",
+        "track": null,
+        "category": "Customer Centricity"
+      },
+      {
+        "title": "Closing Remarks",
+        "location": "Room J1",
+        "startTime": "Nov 7 2019 2:30 PM",
+        "endTime": "Nov 7 2019 2:45 PM",
+        "track": null,
+        "category": "Customer Centricity"
+      }
+    ]
+  }
+]
