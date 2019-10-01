@@ -1,4 +1,12 @@
 @import 'variables';
+@import 'icons';
+@font-face {
+	font-family: "pega-core";
+	src: url("~/fonts/pega-icons.ttf") format("truetype"),
+		url("~/fonts/pega-icons.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
 body{
   background-color: $app-bkg;
 }

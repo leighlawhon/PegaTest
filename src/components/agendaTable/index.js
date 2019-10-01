@@ -4,11 +4,17 @@ import AgendaHeaderComponent from './agendaHeader';
 import { map, chain, forEach } from 'lodash';
 import './agendaTable.scss';
 import { connect } from "react-redux";
+import { iconHelper } from './helpers';
 
 class AgendaTableComponent extends React.Component {
   fakeCurrentTime = new Date("Nov 2 2019 12:00 PM");
-  componentDidMount() {
-    console.log(this.props, 'table')
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      screenWidth: this.onResize()
+    };
+    this.onResize = this.onResize.bind(this)
   }
   currentTimeToggle(startTime) {
     // const currentMonth = this.fakeCurrentTime.getMonth();
@@ -44,13 +50,19 @@ class AgendaTableComponent extends React.Component {
       earliestStartTime.setMinutes(0);
 
       if (firstStartTime >= earliestStartTime && this.props.agenda.dayShowing === 'Full Agenda') {
-        startBuffer.push((<div className="startBuffer d-none d-sm-block" style={{ height: this.parseWidth(earliestStartTime, firstStartTime) + 'px' }}></div>));
+        startBuffer.push((<div className="startBuffer d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>));
       }
       return (
-        <div className="row" >
-          <div className="startBuffer ">{startBuffer}</div>
-          <div className="sessions ">{sessions}</div>
-          <div className="specialEvents ">{specialEvents}</div>
+        <div className="" >
+          <div className="row">
+            <div className="startBuffer border col">{startBuffer}</div>
+          </div>
+          <div className="row">
+            <div className="sessions col">{sessions}</div>
+          </div>
+          <div className="row">
+            <div className="specialEvents col">{specialEvents}</div>
+          </div>
         </div>
       )
     }
@@ -74,7 +86,7 @@ class AgendaTableComponent extends React.Component {
           return this.section(event);
         }
       });
-      return (<div className="row">{newGroup}</div>)
+      return (<div className="">{newGroup}</div>)
     })
   }
 
@@ -94,8 +106,11 @@ class AgendaTableComponent extends React.Component {
 
   }
 
-  parseWidth(startDate, endDate) {
-    if (endDate !== null && this.props.agenda.dayShowing === 'Full Agenda') {
+  parseHeight(startDate, endDate) {
+    if (
+      endDate !== null && this.props.agenda.dayShowing === 'Full Agenda' &&
+      this.state.screenWidth >= 600
+    ) {
       const date1 = new Date(startDate);
       const date2 = new Date(endDate);
       const diffTime = Math.abs(date2 - date1);
@@ -105,28 +120,48 @@ class AgendaTableComponent extends React.Component {
       return 100;
     }
   }
-  section(event, addClass) {
+  section(event) {
     if (event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
+      const iconClass = iconHelper(event.category);
+      let details;
+      if (this.props.agenda.dayShowing !== 'Full Agenda') {
+        details = (<div className="col border details">
+          {'Lorem'}
+        </div>)
+      }
       return (
-        <div className={event.category + ' border col ' + addClass} style={{ height: this.parseWidth(event.startTime, event.endTime) + 'px' }}>
-          <h3 className="m-0"><a href="">{event.title}</a></h3>
-          <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
-          <p className="m-0">{event.location}</p>
+        <div className="row">
+          <div className={event.category + ' border col '} style={{ height: this.parseHeight(event.startTime, event.endTime) + 'px' }}>
+            <h3 className="m-0">
+              <a href="#">{event.title}</a>
+              <span className={iconClass + " icon "}></span>
+            </h3>
+            <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
+            <p className="m-0">{event.location}</p>
+          </div>
+          {details}
         </div>
       )
     }
   }
+  onResize() {
+    let width = document.body.clientWidth;
+    this.setState({ screenWidth: width });
+  }
 
   render() {
+    window.addEventListener("resize", this.onResize);
     return (
-      <div className="container">
+      <div className="container ">
         <AgendaHeaderComponent />
-        <div className="row">
+        <div className="row bg-white">
           {sessionData.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
                 <div className={"col-sm"} >
-                  <div className=" border header">{session.title}</div>
+                  <div className=" header row bg-blue">
+                    <h2 className="col m-1">{session.title} </h2>
+                  </div>
                   {
                     this.parseEvents(session, index)
                   }
