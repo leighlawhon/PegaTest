@@ -170,7 +170,7 @@ class AgendaTableComponent extends React.Component {
           {sessionData.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
-                <div className={"col-sm  animated slideInLeft"} >
+                <div className={"col-sm  animated fadeInUpBig"} >
                   <div className=" header row bg-blue">
                     <h2 className="col m-1">{session.title} </h2>
                   </div>
