@@ -32,7 +32,7 @@ class DayToggle extends React.Component {
   render() {
     return (
       <Container>
-        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="pi-btn-primary">
           <DropdownToggle caret>{this.state.value}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem onClick={this.select}>Today</DropdownItem>

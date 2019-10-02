@@ -1,5 +1,7 @@
 @import 'variables';
 @import 'icons';
+@import 'animate.min.css';
+
 
 @font-face {
 	font-family: "pega-core";
@@ -15,9 +17,26 @@ body{
 a{
 	color: $interactive
 }
+
+.pi-btn-primary > button{
+	border-radius: 50px;
+	background-color: $interactive;
+	&:hover {
+		background-color: $interactive-hover;
+		color: $interactive;
+		border-color: $interactive-hover;
+	}
+}
 .bg-blue {
   background-color: $app-header;
 }
 .bg-white {
   background-color: white;
+}
+.animated {
+	@for $i from 1 through 50 {
+	&:nth-child(#{$i}) {
+		animation-delay: 100ms * $i;
+	}
+}
 }

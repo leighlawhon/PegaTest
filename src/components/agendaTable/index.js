@@ -59,10 +59,10 @@ class AgendaTableComponent extends React.Component {
         <div className="" >
           {startBuffer}
           <div className="row">
-            <div className="sessions col">{sessions}</div>
+            <div className="sessions col ">{sessions}</div>
           </div>
           <div className="row">
-            <div className="specialEvents col">{specialEvents}</div>
+            <div className="specialEvents col ">{specialEvents}</div>
           </div>
         </div>
       )
@@ -145,7 +145,7 @@ class AgendaTableComponent extends React.Component {
         )
       } else {
         return (
-          <div className="row">
+          <div className="row ">
             <div className={categoryClassHelper(event.category) + ' border col p-1 text-center'} style={{ height: this.parseHeight(event.startTime, event.endTime) + 'px' }}>
               <h3 className="m-0">
                 <a href="#">{event.title}</a>
@@ -170,7 +170,7 @@ class AgendaTableComponent extends React.Component {
           {sessionData.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
-                <div className={"col-sm"} >
+                <div className={"col-sm  animated slideInLeft"} >
                   <div className=" header row bg-blue">
                     <h2 className="col m-1">{session.title} </h2>
                   </div>
