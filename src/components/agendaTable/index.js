@@ -1,5 +1,4 @@
 import React from 'react';
-import sessionData from '../../json/Pega_test.json';
 import AgendaHeaderComponent from './agendaHeader';
 import { map, chain, forEach } from 'lodash';
 import './agendaTable.scss';
@@ -100,7 +99,7 @@ class AgendaTableComponent extends React.Component {
       const diffMinutes = Math.ceil(diffTime / (1000 * 60)) / 15;
       return diffMinutes * 70;
     } else {
-      return 150;
+      return 170;
     }
   }
 
@@ -109,7 +108,7 @@ class AgendaTableComponent extends React.Component {
       <div className="container ">
         <AgendaHeaderComponent title={this.props.title} />
         <div className="row bg-white p-3">
-          {sessionData.map((session, index) => {
+          {this.props.data.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
                 <div key={"session" + index} className={"col-lg  animated fadeInUpBig"} >

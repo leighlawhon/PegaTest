@@ -1,9 +1,9 @@
 import React from 'react';
-import AgendaHeaderComponent from '../agendaHeader';
 import '../agendaTable.scss';
 import { connect } from "react-redux";
 import { iconHelper, categoryClassHelper } from '../helpers';
 import InfoModal from '../info-modal';
+import ModalBodyText from '../info-modal/ModalBodyText'
 
 class Section extends React.Component {
   constructor(props) {
@@ -27,13 +27,7 @@ class Section extends React.Component {
   render() {
     if (this.props.event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       const iconClass = iconHelper(this.props.event.category);
-      let details;
-      if (this.props.agenda.dayShowing !== 'Full Agenda') {
-        details = (<div className="col white-border details">
-          {'Lorem'}
-        </div>)
-      }
-      const sectionMinHeight = this.props.screenWidth > 960 ? '220px' : '160px';
+      const sectionMinHeight = this.props.screenWidth > 960 ? '220px' : '150px';
       const sectionHeight = this.props.parseHeight(this.props.event.startTime, this.props.event.endTime) + 'px';
 
       if (this.props.isTrack) {
@@ -55,8 +49,9 @@ class Section extends React.Component {
                 <p className="m-0">{this.props.event.location}</p>
                 {this.props.event.category !== "Special Events" ? <span className={iconClass + " icon "}></span> : null}
               </div>
+
             </div>
-            {details}
+
           </div >
         )
       } else {
@@ -74,8 +69,9 @@ class Section extends React.Component {
               <p className="m-0">{this.parseTime(this.props.event.startTime, this.props.event.endTime)}</p>
               <p className="m-0">{this.props.event.location}</p>
               {this.props.event.category !== "Special Events" ? <span className={iconClass + " icon "}></span> : null}
+
             </div>
-            {details}
+
           </div>
         )
       }
