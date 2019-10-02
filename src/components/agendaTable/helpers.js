@@ -1,6 +1,4 @@
 export function iconHelper(category) {
-  console.log(category)
-
   switch (category) {
     case "Mobile":
       return "pi-mobile-phone";
@@ -19,8 +17,6 @@ export function iconHelper(category) {
   }
 }
 export function categoryClassHelper(category) {
-  console.log(category)
-
   switch (category) {
     case "Mobile":
       return "mobile";

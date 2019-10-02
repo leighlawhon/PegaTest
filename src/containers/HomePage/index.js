@@ -28,7 +28,7 @@ class HomePage extends React.Component {
     } else {
       background = (
         <div className="image-background">
-          <img src={backgroundImage} />
+          <img src={backgroundImage} alt="geometric background" />
         </div>
       )
     }

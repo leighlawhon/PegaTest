@@ -34,9 +34,21 @@ a{
   background-color: white;
 }
 .animated {
-	@for $i from 1 through 50 {
-	&:nth-child(#{$i}) {
-		animation-delay: 500ms * $i;
+		@for $i from 1 through 50 {
+		&:nth-child(#{$i}) {
+			animation-delay: 100ms * $i;
+		}
 	}
 }
+.margin-auto {
+	margin: auto;
+}
+
+.btn.btn-link.btn-secondary {
+	background-color: transparent;
+	border: none;
+	font-size: $default-text;
+	line-height: 1em;
+	color: $interactive;
+	padding: 10px 0px;
 }
