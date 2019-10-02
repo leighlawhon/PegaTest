@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'icons';
+
 @font-face {
 	font-family: "pega-core";
 	src: url("~/fonts/pega-icons.ttf") format("truetype"),
@@ -11,6 +12,9 @@ body{
   background-color: $app-bkg;
 }
 
+a{
+	color: $interactive
+}
 .bg-blue {
   background-color: $app-header;
 }

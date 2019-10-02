@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import counter from './counter';
-import agenda from '../containers/Agenda/reducer'
+import global from './global/reducer';
+import agenda from './agenda/reducer';
 
 export default combineReducers({
-  counter,
+  global,
   agenda
 })

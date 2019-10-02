@@ -1,25 +1,51 @@
+@import '../../styles/variables.scss';
+
 .container{
-  .dayColumn {
-    .specialEvents {
-      width: 300px;
-    }
-    
+
+  .white-border {
+    border: 3px solid white;
   }
-  .startBuffer {
-      width:100%;
+
+  .track {
+    background-color: $grey;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: -5px -5px 0px;
+  }
+  .start-buffer {
+    width:100%;
+    background-color: lighten($light-grey, 10);
+
+  }
+
+  .special-events {
+    background-color: lighten($grey, 20);
+    color: white;
+    a {
+      color: $interactive-hover;
     }
+  }
+
+  .header h2 {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+  }
   
-}
-.header h2 {
-  font-size: 20px;
-  color: white;
-  text-align: center;
-}
-
-// .col, .col-sm {
-//   // width: 100px;
-// }
-
-h3{
-  font-size: 14px;
+  h3, p{
+    text-align: center;
+  }
+  h3 {
+    font-size: $default-text;
+  }
+  p {
+    font-size: $secondary-text;
+  }
+  .breaks-meals, .travel-registration {
+    background-color: lighten($light-grey, 10);
+  }
+  .pegaworld {
+    background-color: lighten($grey, 40);
+  }
 }

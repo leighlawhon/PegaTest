@@ -4,18 +4,15 @@ import AgendaHeaderComponent from './agendaHeader';
 import { map, chain, forEach } from 'lodash';
 import './agendaTable.scss';
 import { connect } from "react-redux";
-import { iconHelper } from './helpers';
+import { iconHelper, categoryClassHelper } from './helpers';
 
 class AgendaTableComponent extends React.Component {
   fakeCurrentTime = new Date("Nov 2 2019 12:00 PM");
 
   constructor(props) {
     super(props);
-    this.state = {
-      screenWidth: this.onResize()
-    };
-    this.onResize = this.onResize.bind(this)
   }
+
   currentTimeToggle(startTime) {
     // const currentMonth = this.fakeCurrentTime.getMonth();
     // const startMonth = startTime.getMonth();
@@ -48,15 +45,19 @@ class AgendaTableComponent extends React.Component {
       const earliestStartTime = new Date(firstStartTime.getTime());
       earliestStartTime.setHours(7);
       earliestStartTime.setMinutes(0);
-
-      if (firstStartTime >= earliestStartTime && this.props.agenda.dayShowing === 'Full Agenda') {
-        startBuffer.push((<div className="startBuffer d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>));
+      if (firstStartTime.getTime() !== earliestStartTime.getTime() && this.props.agenda.dayShowing === 'Full Agenda') {
+        startBuffer.push((
+          <div className="row">
+            <div className="start-buffer border col">
+              <div className="start-buffer d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>
+            </div>
+          </div>
+        ));
       }
+
       return (
         <div className="" >
-          <div className="row">
-            <div className="startBuffer border col">{startBuffer}</div>
-          </div>
+          {startBuffer}
           <div className="row">
             <div className="sessions col">{sessions}</div>
           </div>
@@ -80,13 +81,9 @@ class AgendaTableComponent extends React.Component {
   parseTracks(groupedEvents) {
     return map(groupedEvents, (group, i) => {
       const newGroup = map(group, (event) => {
-        if (group.length === 1) {
-          return this.section(event);
-        } else {
-          return this.section(event);
-        }
+        return this.section(event, true);
       });
-      return (<div className="">{newGroup}</div>)
+      return (<div className="row">{newGroup}</div>)
     })
   }
 
@@ -109,7 +106,7 @@ class AgendaTableComponent extends React.Component {
   parseHeight(startDate, endDate) {
     if (
       endDate !== null && this.props.agenda.dayShowing === 'Full Agenda' &&
-      this.state.screenWidth >= 600
+      this.props.screenWidth >= 600
     ) {
       const date1 = new Date(startDate);
       const date2 = new Date(endDate);
@@ -117,44 +114,59 @@ class AgendaTableComponent extends React.Component {
       const diffMinutes = Math.ceil(diffTime / (1000 * 60)) / 15;
       return diffMinutes * 70;
     } else {
-      return 100;
+      return 200;
     }
   }
-  section(event) {
+  section(event, isTrack = false) {
     if (event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       const iconClass = iconHelper(event.category);
       let details;
       if (this.props.agenda.dayShowing !== 'Full Agenda') {
-        details = (<div className="col border details">
+        details = (<div className="col white-border details">
           {'Lorem'}
         </div>)
       }
-      return (
-        <div className="row">
-          <div className={event.category + ' border col '} style={{ height: this.parseHeight(event.startTime, event.endTime) + 'px' }}>
-            <h3 className="m-0">
-              <a href="#">{event.title}</a>
-              <span className={iconClass + " icon "}></span>
-            </h3>
-            <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
-            <p className="m-0">{event.location}</p>
+      if (isTrack) {
+        return (
+          <div className="col">
+            <div className={categoryClassHelper(event.category) + ' border row'} style={{ height: this.parseHeight(event.startTime, event.endTime) + 'px', minHeight: '200px' }}>
+              <div className="col p-1 text-center">
+                <div className="track">{event.track}</div>
+                <h3 className="mb-0 mt-1">
+                  <a href="#">{event.title}</a>
+                </h3>
+                <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
+                <p className="m-0">{event.location}</p>
+                {event.category !== "Special Events" ? <span className={iconClass + " icon "}></span> : null}
+              </div>
+            </div>
+            {details}
+          </div >
+        )
+      } else {
+        return (
+          <div className="row">
+            <div className={categoryClassHelper(event.category) + ' border col p-1 text-center'} style={{ height: this.parseHeight(event.startTime, event.endTime) + 'px' }}>
+              <h3 className="m-0">
+                <a href="#">{event.title}</a>
+              </h3>
+              <p className="m-0">{this.parseTime(event.startTime, event.endTime)}</p>
+              <p className="m-0">{event.location}</p>
+              {event.category !== "Special Events" ? <span className={iconClass + " icon "}></span> : null}
+            </div>
+            {details}
           </div>
-          {details}
-        </div>
-      )
+        )
+      }
+
     }
-  }
-  onResize() {
-    let width = document.body.clientWidth;
-    this.setState({ screenWidth: width });
   }
 
   render() {
-    window.addEventListener("resize", this.onResize);
     return (
       <div className="container ">
-        <AgendaHeaderComponent />
-        <div className="row bg-white">
+        <AgendaHeaderComponent title={this.props.title} />
+        <div className="row bg-white p-3">
           {sessionData.map((session, index) => {
             if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
               return (
@@ -175,10 +187,11 @@ class AgendaTableComponent extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state); return ({
-    ...state
-  });
-}
+const mapStateToProps = state => ({
+  screenWidth: state.global.screenWidth,
+  agenda: state.agenda,
+  toggleCollapse: state.toggleCollapse,
+});
+
 
 export default connect(mapStateToProps, null)(AgendaTableComponent);

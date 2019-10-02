@@ -1,16 +1,22 @@
 [
   {
     "title": "Sunday 3",
-    "startTime": "Nov 3 2019 1:00 PM",
-    "endTime": "Nov 3 2019 6:00 PM",
     "events": [
+      {
+        "title": "Check-in & Registration by 12:00PM",
+        "location": "Travel to PegaWORLD - Registration @ Marriot Orlando",
+        "startTime": "Nov 3 2019 7:00 AM",
+        "endTime": "Nov 3 2019 12:00 PM",
+        "track": null,
+        "category": "Travel & Registration"
+      },
       {
         "title": "Opening Remarks",
         "location": "Room J1",
         "startTime": "Nov 3 2019 1:00 PM",
         "endTime": "Nov 3 2019 1:30 PM",
         "track": null,
-        "category": "PegaWORLD"
+        "category": ""
       },
       {
         "title": "Strategic Applications and Competitive Intelligence ",
@@ -18,7 +24,7 @@
         "startTime": "Nov 3 2019 1:30 PM",
         "endTime": "Nov 3 2019 3:00 PM",
         "track": null,
-        "category": "PegaWORLD"
+        "category": ""
       },
       {
         "title": "Break",
@@ -64,8 +70,6 @@
   },
   {
     "title": "Monday 4",
-    "startTime": "Nov 3 2019 8:00 AM",
-    "endTime": "Nov 3 2019 6:00 PM",
     "events": [
       {
         "title": "PegaWORLD",
@@ -87,8 +91,6 @@
   },
   {
     "title": "Tuesday 5",
-    "startTime": "Nov 5 2019 8:00 AM",
-    "endTime": "Nov 5 2019 6:00 PM",
     "events": [
       {
         "title": "PegaWORLD",
@@ -110,8 +112,6 @@
   },
   {
     "title": "Wednesday 6",
-    "startTime": "Nov 6 2019 8:00 AM",
-    "endTime": "Nov 6 2019 6:00 PM",
     "events": [
       {
         "title": "Breakfast",
@@ -126,7 +126,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 8:15 AM",
         "endTime": "Nov 6 2019 8:45 AM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "Mobile"
       },
       {
@@ -134,7 +134,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 8:45 AM",
         "endTime": "Nov 6 2019 9:15 AM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "User Centered Design"
       },
       {
@@ -142,7 +142,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 9:15 AM",
         "endTime": "Nov 6 2019 10:35 AM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "User Centered Design"
       },
       {
@@ -150,7 +150,7 @@
         "location": null,
         "startTime": "Nov 6 2019 10:35 AM",
         "endTime": "Nov 6 2019 10:50 AM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "Breaks & Meals"
       },
       {
@@ -158,7 +158,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 10:50 AM",
         "endTime": "Nov 6 2019 12:20 PM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "User Centered Design"
       },
       {
@@ -166,7 +166,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 8:15 AM",
         "endTime": "Nov 6 2019 8:45 AM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "User Centered Design"
       },
       {
@@ -174,7 +174,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 8:45 AM",
         "endTime": "Nov 6 2019 9:00 AM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "Mobile"
       },
       {
@@ -182,7 +182,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 9:15 AM",
         "endTime": "Nov 6 2019 10:45 AM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "Mobile"
       },
       {
@@ -190,7 +190,7 @@
         "location": null,
         "startTime": "Nov 6 2019 10:45 AM",
         "endTime": "Nov 6 2019 11:00 AM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "Breaks & Meals"
       },
       {
@@ -198,7 +198,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 11:00 AM",
         "endTime": "Nov 6 2019 12:20 PM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "Mobile"
       },
       {
@@ -214,7 +214,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 1:05 PM",
         "endTime": "Nov 6 2019 2:35 PM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "Mobile"
       },
       {
@@ -222,7 +222,7 @@
         "location": "Room K",
         "startTime": "Nov 6 2019 2:35 PM",
         "endTime": "Nov 6 2019 3:55 PM",
-        "track": "track1",
+        "track": "Track 1",
         "category": "Mobile"
       },
       {
@@ -230,7 +230,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 1:05 PM",
         "endTime": "Nov 6 2019 2:35 PM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "User Centered Design"
       },
       {
@@ -238,7 +238,7 @@
         "location": "Room L",
         "startTime": "Nov 6 2019 2:35 PM",
         "endTime": "Nov 6 2019 3:55 PM",
-        "track": "track2",
+        "track": "Track 2",
         "category": "User Centered Design"
       },
       {
@@ -277,8 +277,6 @@
   },
   {
     "title": "Thursday 7",
-    "startTime": "Nov 6 2019 8:00 AM",
-    "endTime": "Nov 6 2019 6:00 PM",
     "events": [
       {
         "title": "Breakfast",
@@ -334,7 +332,15 @@
         "startTime": "Nov 7 2019 2:30 PM",
         "endTime": "Nov 7 2019 2:45 PM",
         "track": null,
-        "category": "Customer Centricity"
+        "category": ""
+      },
+      {
+        "title": "Bus service to airport",
+        "location": "Travel from PegaWORLD",
+        "startTime": "Nov 7 2019 3:00 PM",
+        "endTime": "Nov 7 2019 6:00 PM",
+        "track": null,
+        "category": "Travel & Registration"
       }
     ]
   }

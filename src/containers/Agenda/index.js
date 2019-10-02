@@ -13,8 +13,8 @@ export default function Agenda() {
   return (
     <div>
       <NavigationComponent />
-      <PageHeaderComponent />
-      <AgendaTableComponent />
+      <PageHeaderComponent title="Agenda" />
+      <AgendaTableComponent title="Design Track" />
     </div>
   );
 }

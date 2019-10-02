@@ -7,19 +7,45 @@
 
 import React from 'react';
 import NavigationComponent from '../../components/navigation';
+import { connect } from "react-redux";
+import backgroundImage from '../../images/mask-group-1-2@1x.png';
 import './homePage.scss'
 
-export default function HomePage() {
-  return (
-    <div>
-      <NavigationComponent />
-      <div className="video-background">
-        <div className="overlay"></div>
-        <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
-          <source src="Technology_Background.mp4" type="video/mp4" />
-        </video>
-      </div>
+class HomePage extends React.Component {
 
-    </div>
-  );
+  render() {
+    let background;
+
+    if (this.props.screenWidth >= 600) {
+      background = (
+        <div className="video-background">
+          <div className="overlay"></div>
+          <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
+            <source src="Technology_Background.mp4" type="video/mp4" />
+          </video>
+        </div>
+      )
+    } else {
+      background = (
+        <div className="image-background">
+          <img src={backgroundImage} />
+        </div>
+      )
+    }
+    return (
+      <div>
+        <NavigationComponent />
+        {background}
+      </div >
+    );
+  }
 }
+
+const mapStateToProps = state => {
+  console.log(state)
+  return ({
+    screenWidth: state.global.screenWidth,
+  });
+}
+
+export default connect(mapStateToProps, null)(HomePage);

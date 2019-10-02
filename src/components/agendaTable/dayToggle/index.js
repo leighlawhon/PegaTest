@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { toggleDay } from '../../../containers/Agenda/actions'
+import { toggleDay } from '../../../modules/agenda/actions'
 import { connect } from "react-redux";
 
 class DayToggle extends React.Component {

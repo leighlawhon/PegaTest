@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { toggleCategory } from '../../../containers/Agenda/actions'
+import { toggleCategory } from '../../../modules/agenda/actions'
 import { connect } from "react-redux";
 
 class CategoryToggle extends React.Component {
