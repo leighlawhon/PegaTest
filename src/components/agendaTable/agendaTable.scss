@@ -2,10 +2,6 @@
 
 .container{
 
-  .white-border {
-    border: 3px solid white;
-  }
-
   .track {
     background-color: $grey;
     color: white;
@@ -27,10 +23,18 @@
     }
   }
 
-  .header h2 {
-    font-size: 20px;
-    color: white;
-    text-align: center;
+  .header {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+
+      h2 {
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      
+    }
   }
   
   h3, p{

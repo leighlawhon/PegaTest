@@ -52,3 +52,7 @@ a{
 	color: $interactive;
 	padding: 10px 0px;
 }
+
+.blue-border-top {
+	border-top: $app-header 10px solid;
+}
