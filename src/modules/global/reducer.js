@@ -3,7 +3,7 @@ import { SCREEN_WIDTH, REQUEST_DATA, RECEIVE_DATA, UPDATE_DAYS } from './actions
 /* eslint-disable default-case, no-param-reassign */
 const initialState = {
   screenWidth: typeof window === 'object' ? window.innerWidth : null,
-  fakeCurrentTime: new Date("Nov 2 2019 12:00 PM"),
+  fakeCurrentTime: new Date("Nov 2 2019 12:00 AM"),
   data: [],
   days: {}
 }

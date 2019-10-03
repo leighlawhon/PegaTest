@@ -47,6 +47,7 @@ class AgendaTableComponent extends React.Component {
       if (
         firstStartTime.getTime() !== earliestStartTime.getTime()
         && this.props.agenda.dayShowing === 'Full Agenda'
+        && this.props.agenda.categoryShowing === 'Full Agenda'
       ) {
         startBuffer.push((
           <div className={"row " + this.dayInPast(firstStartTime)} key="startBuffer">
@@ -119,12 +120,10 @@ class AgendaTableComponent extends React.Component {
           {!this.props.isFetching ?
             this.props.data.map((session, index) => {
               const sesstionTitleDate = new Date(session.title).getTime();
-              console.log(this.props.days)
-
               return (
                 <div
                   key={"session" + index}
-                  className={!this.props.days[sesstionTitleDate] ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
+                  className={!this.props.days[sesstionTitleDate] || this.props.fakeCurrentTime > sesstionTitleDate ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
                 >
                   <div
                     className={" header row bg-blue text-center " + this.props.agenda.showHideDay}

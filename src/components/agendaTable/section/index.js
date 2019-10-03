@@ -27,6 +27,7 @@ class Section extends React.Component {
   }
 
   render() {
+    console.log(this.props.event.category, this.props.agenda.categoryShowing)
     if (this.props.event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       const iconClass = iconHelper(this.props.event.category);
       const sectionMinHeight = this.props.screenWidth > 960 ? '220px' : '150px';
@@ -78,6 +79,8 @@ class Section extends React.Component {
         )
       }
 
+    } else {
+      return null
     }
   }
 }
