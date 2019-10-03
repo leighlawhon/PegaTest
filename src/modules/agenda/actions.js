@@ -15,6 +15,7 @@ export function toggleCategory(text) {
   return { type: TOGGLE_CATEGORY, text }
 }
 export function showHideDay(value, invert) {
+  console.log(value)
   const daysObj = store.getState().global.days;
   if (invert) {
     for (let [key, value] of Object.entries(daysObj)) {
@@ -22,7 +23,7 @@ export function showHideDay(value, invert) {
     }
     daysObj[new Date(value).getTime()] = true;
 
-    return { type: SHOW_HIDE_DAY, hideSpace: invert }
+    return { type: SHOW_HIDE_DAY, hideSpace: true }
   } else {
     daysObj[new Date(value).getTime()] = !daysObj[new Date(value).getTime()]
     store.dispatch(updateDays(daysObj));

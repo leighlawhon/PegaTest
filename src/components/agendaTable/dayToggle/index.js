@@ -29,7 +29,7 @@ class DayToggle extends React.Component {
       for (let [key, value] of Object.entries(daysObj)) {
         daysObj[key] = true;
       }
-      this.props.updateDays(daysObj);
+      this.props.showHideDay(event.target.innerText);
     } else {
       this.props.showHideDay(event.target.innerText, true);
     }
@@ -41,6 +41,7 @@ class DayToggle extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Container>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="pi-btn-primary">
