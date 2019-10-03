@@ -5,7 +5,9 @@ import './agendaTable.scss';
 import { connect } from "react-redux";
 import Section from './section';
 import { dayInPast } from './helpers';
-import { showHideDay } from '../../modules/agenda/actions'
+import { showHideDay } from '../../modules/agenda/actions';
+import { updateDays } from '../../modules/global/actions';
+
 import Spinner from '../spinner';
 
 class AgendaTableComponent extends React.Component {
@@ -15,7 +17,9 @@ class AgendaTableComponent extends React.Component {
     this.parseHeight = this.parseHeight.bind(this);
     this.dayInPast = dayInPast.bind(this);
   }
-
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(prevProps, prevState)
+  }
   parseEvents(session, index) {
     // If day is Wednesaday
     if (index === 3) {
@@ -45,7 +49,7 @@ class AgendaTableComponent extends React.Component {
         && this.props.agenda.dayShowing === 'Full Agenda'
       ) {
         startBuffer.push((
-          <div className={"col " + this.dayInPast(firstStartTime)} key="startBuffer">
+          <div className={"row " + this.dayInPast(firstStartTime)} key="startBuffer">
             <div className="start-buffer border col">
               <div className="d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>
             </div>
@@ -55,7 +59,7 @@ class AgendaTableComponent extends React.Component {
 
       return (
         <div className="" >
-          {startBuffer}
+          {!this.props.hideSpace ? startBuffer : null}
           <div className="row">
             <div className="sessions col ">{sessions}</div>
           </div>
@@ -101,7 +105,6 @@ class AgendaTableComponent extends React.Component {
     }
   }
   showHideDay(title) {
-    console.log(this.props.data, this.props.isFetching)
     this.props.showHideDay(title);
   }
   render() {
@@ -115,29 +118,28 @@ class AgendaTableComponent extends React.Component {
         <div className="row bg-white p-3">
           {!this.props.isFetching ?
             this.props.data.map((session, index) => {
-              const pastTime = this.props.fakeCurrentTime.getDate() > new Date(session.events[0].startTime).getDate();
-              const sesstionTitleDate = new Date(session.title).toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric' })
-              console.log(sesstionTitleDate === this.props.agenda.dayShowing)
-              if (sesstionTitleDate === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
-                return (
+              const sesstionTitleDate = new Date(session.title).getTime();
+              console.log(this.props.days)
+
+              return (
+                <div
+                  key={"session" + index}
+                  className={!this.props.days[sesstionTitleDate] ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
+                >
                   <div
-                    key={"session" + index}
-                    className={pastTime ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
+                    className={" header row bg-blue text-center " + this.props.agenda.showHideDay}
+                    onClick={() => this.showHideDay(session.title)}
                   >
-                    <div
-                      className={" header row bg-blue text-center " + this.props.agenda.showHideDay}
-                      onClick={() => this.showHideDay(session.title)}
-                    >
-                      <h2 className="col mt-1 mb-0">{(getModifiedDate(session.title)).date} </h2>
-                      <p className="mb-0 dayLabel">{(getModifiedDate(session.title)).day} </p>
-                    </div>
-                    {
-                      this.parseEvents(session, index)
-                    }
+                    <h2 className="col mt-1 mb-0">{(getModifiedDate(session.title)).date} </h2>
+                    <p className="mb-0 dayLabel">{(getModifiedDate(session.title)).day} </p>
                   </div>
-                )
-              }
-            }) : <Spinner />
+                  {(this.props.days[sesstionTitleDate]) ?
+                    this.parseEvents(session, index) : null
+                  }
+                </div>
+              )
+            }
+            ) : <Spinner />
           }
         </div>
       </div >
@@ -150,7 +152,9 @@ const mapStateToProps = state => ({
   agenda: state.agenda,
   fakeCurrentTime: state.global.fakeCurrentTime,
   data: state.global.data,
-  isFetching: state.global.isFetching
+  isFetching: state.global.isFetching,
+  days: state.global.days,
+  hideSpace: state.agenda.hideSpace
 });
 
 const mapDispatchToProps = dispatch => {

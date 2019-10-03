@@ -30,7 +30,7 @@ class Section extends React.Component {
     if (this.props.event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       const iconClass = iconHelper(this.props.event.category);
       const sectionMinHeight = this.props.screenWidth > 960 ? '220px' : '150px';
-      const sectionHeight = this.props.parseHeight(this.props.event.startTime, this.props.event.endTime) + 'px';
+      const sectionHeight = !this.props.hideSpace ? this.props.parseHeight(this.props.event.startTime, this.props.event.endTime) + 'px' : 'auto';
 
       if (this.props.isTrack) {
         return (
@@ -87,6 +87,7 @@ const mapStateToProps = state => {
     screenWidth: state.global.screenWidth,
     agenda: state.agenda,
     fakeCurrentTime: state.global.fakeCurrentTime,
+    hideSpace: state.agenda.hideSpace
   })
 };
 

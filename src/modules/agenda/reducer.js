@@ -6,6 +6,7 @@ import { SHOW_HIDE_DAY } from './actions';
 const initialState = {
   dayShowing: 'Full Agenda',
   categoryShowing: 'Full Agenda',
+  hideSpace: false
 }
 
 /* eslint-disable default-case, no-param-reassign */
@@ -16,7 +17,7 @@ export default function agenda(state = initialState, action) {
     case TOGGLE_CATEGORY:
       return { ...state, categoryShowing: action.text }
     case SHOW_HIDE_DAY:
-      return { ...state, showHideDay: action.showHideArray }
+      return { ...state, hideSpace: action.hideSpace }
     default:
       return state
   }

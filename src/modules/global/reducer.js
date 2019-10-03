@@ -1,4 +1,4 @@
-import { SCREEN_WIDTH, REQUEST_DATA, RECEIVE_DATA } from './actions';
+import { SCREEN_WIDTH, REQUEST_DATA, RECEIVE_DATA, UPDATE_DAYS } from './actions';
 
 /* eslint-disable default-case, no-param-reassign */
 const initialState = {
@@ -16,6 +16,8 @@ export default function global(state = initialState, action) {
       return { ...state, isFetching: true, }
     case RECEIVE_DATA:
       return { ...state, data: action.data, isFetching: false, days: action.days }
+    case UPDATE_DAYS:
+      return { ...state, days: action.days }
     default:
       return state
   }
