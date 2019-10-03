@@ -126,7 +126,7 @@ class AgendaTableComponent extends React.Component {
                   className={!this.props.days[sesstionTitleDate] || this.props.fakeCurrentTime > sesstionTitleDate ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
                 >
                   <div
-                    className={" header row bg-blue text-center " + this.props.agenda.showHideDay}
+                    className={" header row bg-blue text-center " + (this.props.days[sesstionTitleDate] ? 'full' : 'faded')}
                     onClick={() => this.showHideDay(session.title)}
                   >
                     <h2 className="col mt-1 mb-0">{(getModifiedDate(session.title)).date} </h2>

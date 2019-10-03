@@ -29,11 +29,21 @@
     height: 50px;
     margin: 0 auto 15px;
 
-      h2 {
-      font-size: 20px;
-      color: white;
-      text-align: center;
+    h2 {
+    font-size: 20px;
+    color: white;
+    text-align: center;
       
+    }
+    
+    &.faded {
+      opacity: 0.5;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .header {
+      margin: 15px auto ;
     }
   }
   
@@ -62,5 +72,13 @@
   }
   .empty {
     width: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .empty {
+      width: 100%;
+    }
   }
 }
