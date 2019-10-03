@@ -22,6 +22,7 @@ class DayToggle extends React.Component {
   }
 
   select(event) {
+    console.log(event.target.innerText);
     this.props.toggleDay(event.target.innerText);
     this.setState({
       dropdownOpen: !this.state.dropdownOpen,
@@ -35,14 +36,14 @@ class DayToggle extends React.Component {
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="pi-btn-primary">
           <DropdownToggle caret>{this.state.value}</DropdownToggle>
           <DropdownMenu>
-            <DropdownItem onClick={this.select}>Today</DropdownItem>
-            <DropdownItem onClick={this.select}>Full Agenda</DropdownItem>
-            <DropdownItem divider></DropdownItem>
-            <DropdownItem onClick={this.select}>Sunday 3</DropdownItem>
-            <DropdownItem onClick={this.select}>Monday 4</DropdownItem>
-            <DropdownItem onClick={this.select}>Tuesday 5</DropdownItem>
-            <DropdownItem onClick={this.select}>Wednesday 6</DropdownItem>
-            <DropdownItem onClick={this.select}>Thursday 7</DropdownItem>
+            {Object.keys(this.props.days).map((item, index) => {
+              const date = new Date(parseInt(item));
+              return <DropdownItem
+                onClick={this.select}
+                key={"days" + index}>
+                {date.toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric' })}
+              </DropdownItem>
+            })}
           </DropdownMenu>
         </ButtonDropdown>
       </Container>
@@ -54,7 +55,11 @@ const mapDispatchToProps = dispatch => {
   return {
     toggleDay: (text) => dispatch(toggleDay(text)),
   }
-
 };
 
-export default connect(null, mapDispatchToProps)(DayToggle);
+const mapStateToProps = state => ({
+  days: state.global.days
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DayToggle);

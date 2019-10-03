@@ -36,3 +36,11 @@ export function categoryClassHelper(category) {
       break;
   }
 }
+
+export function dayInPast(eventEndTime) {
+  if (this.props.fakeCurrentTime.getTime() > new Date(eventEndTime).getTime()) {
+    return 'd-none';
+  } else {
+    return 'show';
+  }
+}

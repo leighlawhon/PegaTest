@@ -1,14 +1,21 @@
-import { SCREEN_WIDTH } from './actions';
+import { SCREEN_WIDTH, REQUEST_DATA, RECEIVE_DATA } from './actions';
 
 /* eslint-disable default-case, no-param-reassign */
 const initialState = {
   screenWidth: typeof window === 'object' ? window.innerWidth : null,
+  fakeCurrentTime: new Date("Nov 2 2019 12:00 PM"),
+  data: [],
+  days: {}
 }
 
 export default function global(state = initialState, action) {
   switch (action.type) {
     case SCREEN_WIDTH:
       return { ...state, screenWidth: action.screenWidth }
+    case REQUEST_DATA:
+      return { ...state, isFetching: true, }
+    case RECEIVE_DATA:
+      return { ...state, data: action.data, isFetching: false, days: action.days }
     default:
       return state
   }

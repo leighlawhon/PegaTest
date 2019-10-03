@@ -4,23 +4,18 @@ import { map, chain, forEach } from 'lodash';
 import './agendaTable.scss';
 import { connect } from "react-redux";
 import Section from './section';
+import { dayInPast } from './helpers';
+import { showHideDay } from '../../modules/agenda/actions'
+import Spinner from '../spinner';
 
 class AgendaTableComponent extends React.Component {
-  fakeCurrentTime = new Date("Nov 2 2019 12:00 PM");
 
   constructor(props) {
     super(props);
     this.parseHeight = this.parseHeight.bind(this);
+    this.dayInPast = dayInPast.bind(this);
   }
 
-  currentTimeToggle(startTime) {
-    // const currentMonth = this.fakeCurrentTime.getMonth();
-    // const startMonth = startTime.getMonth();
-    // const currentDay = this.fakeCurrentTime.geDay();
-    // const startDay = startTime.geDay();
-
-    // currentMonth === startMonth && currentDay === startDay ? "show" : "hide"
-  }
   parseEvents(session, index) {
     // If day is Wednesaday
     if (index === 3) {
@@ -33,11 +28,11 @@ class AgendaTableComponent extends React.Component {
       forEach(session.events, (event, index) => {
         if (event.category === 'SpecialEvent') {
           specialEvents.push(
-            <Section key={"section" + index} parseHeight={this.parseHeight} event={event} />
+            <Section key={"section" + index} parseHeight={this.parseHeight} event={event} /> || null
           )
         } else {
           sessions.push(
-            <Section key={"section" + index} parseHeight={this.parseHeight} event={event} />
+            <Section key={"section" + index} parseHeight={this.parseHeight} event={event} /> || null
           )
         }
       });
@@ -45,11 +40,14 @@ class AgendaTableComponent extends React.Component {
       const earliestStartTime = new Date(firstStartTime.getTime());
       earliestStartTime.setHours(7);
       earliestStartTime.setMinutes(0);
-      if (firstStartTime.getTime() !== earliestStartTime.getTime() && this.props.agenda.dayShowing === 'Full Agenda') {
+      if (
+        firstStartTime.getTime() !== earliestStartTime.getTime()
+        && this.props.agenda.dayShowing === 'Full Agenda'
+      ) {
         startBuffer.push((
-          <div className="row" key="startBuffer">
+          <div className={"col " + this.dayInPast(firstStartTime)} key="startBuffer">
             <div className="start-buffer border col">
-              <div className="start-buffer d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>
+              <div className="d-none d-sm-block" style={{ height: this.parseHeight(earliestStartTime, firstStartTime) + 'px' }}></div>
             </div>
           </div>
         ));
@@ -81,7 +79,7 @@ class AgendaTableComponent extends React.Component {
   parseTracks(groupedEvents) {
     return map(groupedEvents, (group, i) => {
       const newGroup = map(group, (event, index) => {
-        return <Section key={"section" + index} parseHeight={this.parseHeight} event={event} isTrack="true"></Section>
+        return <Section key={"section" + index} parseHeight={this.parseHeight} event={event} isTrack="true"></Section> || null
       });
       return (<div className="row" key={"group" + i}>{newGroup}</div>)
     })
@@ -102,29 +100,47 @@ class AgendaTableComponent extends React.Component {
       return 170;
     }
   }
-
+  showHideDay(title) {
+    console.log(this.props.data, this.props.isFetching)
+    this.props.showHideDay(title);
+  }
   render() {
+    const getModifiedDate = (title) => {
+      const titleDate = new Date(title);
+      return { date: titleDate.getDate(), day: titleDate.toLocaleString('default', { weekday: 'short' }) };
+    }
     return (
       <div className="container ">
         <AgendaHeaderComponent title={this.props.title} />
         <div className="row bg-white p-3">
-          {this.props.data.map((session, index) => {
-            if (session.title === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
-              return (
-                <div key={"session" + index} className={"col-lg  animated fadeInUpBig"} >
-                  <div className=" header row bg-blue">
-                    <h2 className="col m-1">{session.title} </h2>
+          {!this.props.isFetching ?
+            this.props.data.map((session, index) => {
+              const pastTime = this.props.fakeCurrentTime.getDate() > new Date(session.events[0].startTime).getDate();
+              const sesstionTitleDate = new Date(session.title).toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric' })
+              console.log(sesstionTitleDate === this.props.agenda.dayShowing)
+              if (sesstionTitleDate === this.props.agenda.dayShowing || this.props.agenda.dayShowing === 'Full Agenda') {
+                return (
+                  <div
+                    key={"session" + index}
+                    className={pastTime ? "empty animated fadeInUpBig" : "col-lg  animated fadeInUpBig"}
+                  >
+                    <div
+                      className={" header row bg-blue text-center " + this.props.agenda.showHideDay}
+                      onClick={() => this.showHideDay(session.title)}
+                    >
+                      <h2 className="col mt-1 mb-0">{(getModifiedDate(session.title)).date} </h2>
+                      <p className="mb-0 dayLabel">{(getModifiedDate(session.title)).day} </p>
+                    </div>
+                    {
+                      this.parseEvents(session, index)
+                    }
                   </div>
-                  {
-                    this.parseEvents(session, index)
-                  }
-                </div>
-              )
-            }
-            return
-          })}
+                )
+              }
+            }) : <Spinner />
+          }
         </div>
-      </div>
+      </div >
     );
   }
 }
@@ -132,8 +148,15 @@ class AgendaTableComponent extends React.Component {
 const mapStateToProps = state => ({
   screenWidth: state.global.screenWidth,
   agenda: state.agenda,
-  toggleCollapse: state.toggleCollapse,
+  fakeCurrentTime: state.global.fakeCurrentTime,
+  data: state.global.data,
+  isFetching: state.global.isFetching
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    showHideDay: (value) => dispatch(showHideDay(value)),
+  }
+};
 
-export default connect(mapStateToProps, null)(AgendaTableComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(AgendaTableComponent);

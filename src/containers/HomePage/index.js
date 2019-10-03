@@ -42,7 +42,6 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return ({
     screenWidth: state.global.screenWidth,
   });

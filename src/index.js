@@ -9,9 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'sanitize.css/sanitize.css'
 import './styles/styles.scss'
 import { onWindowResize } from './modules/global/actions';
+import { fetchData } from './modules/global/actions';
 
 const target = document.querySelector('#root');
 window.addEventListener("resize", () => { store.dispatch(onWindowResize(window.innerWidth)) });
+
+store.dispatch(fetchData());
 
 render(
   <Provider store={store}>

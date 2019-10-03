@@ -3,12 +3,14 @@ import '../agendaTable.scss';
 import { connect } from "react-redux";
 import { iconHelper, categoryClassHelper } from '../helpers';
 import InfoModal from '../info-modal';
-import ModalBodyText from '../info-modal/ModalBodyText'
+import { dayInPast } from '../helpers';
 
 class Section extends React.Component {
   constructor(props) {
     super(props);
+    this.dayInPast = dayInPast.bind(this);
   }
+
   parseTime(startDate, endDate) {
     const startTime = new Date(startDate);
     let endTime = endDate !== null ? new Date(endDate) : null;
@@ -17,13 +19,13 @@ class Section extends React.Component {
     if (endDate !== null) {
       parsedEndTime = '–' + endTime.getHours() + ':' + (endTime.getMinutes() < 10 ? '0' + endTime.getMinutes() : endTime.getMinutes());
     } else {
-      // console.log('null')
       parsedEndTime = '';
     }
 
     return parsedStartTime + parsedEndTime;
 
   }
+
   render() {
     if (this.props.event.category === this.props.agenda.categoryShowing || this.props.agenda.categoryShowing === 'Full Agenda') {
       const iconClass = iconHelper(this.props.event.category);
@@ -32,7 +34,7 @@ class Section extends React.Component {
 
       if (this.props.isTrack) {
         return (
-          <div className="col" key={this.props.key}>
+          <div className={"col " + this.dayInPast(this.props.event.startTime)} key={this.props.key}>
             <div className={categoryClassHelper(this.props.event.category) + ' border row'}
               style={{ height: sectionHeight, minHeight: sectionMinHeight }}
             >
@@ -56,7 +58,7 @@ class Section extends React.Component {
         )
       } else {
         return (
-          <div className="row " key={this.props.key}>
+          <div className={"row " + this.dayInPast(this.props.event.startTime)} key={this.props.key}>
             <div
               className={categoryClassHelper(this.props.event.category) + ' border col p-1 text-center'}
               style={{ height: sectionHeight }}
@@ -80,10 +82,13 @@ class Section extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  screenWidth: state.global.screenWidth,
-  agenda: state.agenda,
-});
+const mapStateToProps = state => {
+  return ({
+    screenWidth: state.global.screenWidth,
+    agenda: state.agenda,
+    fakeCurrentTime: state.global.fakeCurrentTime,
+  })
+};
 
 
 export default connect(mapStateToProps, null)(Section);

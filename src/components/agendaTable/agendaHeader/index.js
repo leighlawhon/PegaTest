@@ -9,8 +9,8 @@ class AgendaHeaderComponent extends React.Component {
     return (
       <div className="" >
         <div className="row">
-          <h1 className={largeScreen ? "col-xs" : "col-xs text-center mb-2"}>{this.props.title}</h1>
-          <ul className={largeScreen ? "nav justify-content-end m-4" : "nav margin-auto mb-3"}>
+          <h1 className={largeScreen ? "col-xs pl-2" : "col-xs text-center mb-3 pl-2 mt-2"}>{this.props.title}</h1>
+          <ul className={largeScreen ? "nav justify-content-end mt-4" : "nav margin-auto mt-2"}>
             <li className="nav-item ">
               <DayToggle />
             </li>

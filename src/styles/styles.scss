@@ -11,7 +11,10 @@
 	font-style: normal;
 }
 body{
-  background-color: $app-bkg;
+	background-color: $app-bkg;
+	.container {
+		max-width: calc(100% - 30px);
+	}
 }
 
 a{

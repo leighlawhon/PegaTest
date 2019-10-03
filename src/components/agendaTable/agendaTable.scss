@@ -45,11 +45,22 @@
   }
   p {
     font-size: $secondary-text;
+
+    &.dayLabel {text-align: center;
+      color: white;
+      text-transform: uppercase;
+      font-size: 12px;
+      width:100%;
+      margin-top: -10px;
+    }
   }
   .breaks-meals, .travel-registration {
     background-color: lighten($light-grey, 10);
   }
   .pegaworld {
     background-color: lighten($grey, 40);
+  }
+  .empty {
+    width: 5%;
   }
 }

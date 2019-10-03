@@ -1,12 +1,13 @@
 @import '../../styles/variables.scss';
 
 .spinner {
-  
+  position: relative;
   .icon {
     position: absolute;
     z-index: 2;
     width: 90px;
     height: 90px;
+    top: 55px;
     &:before {
       font-size: 60px;
     }
@@ -18,7 +19,7 @@
 .loader:after {
   border-radius: 50%;
   position: absolute;
-  top: -55px;
+  top: 0px;
   left: 45px;
 }
 .loader {
