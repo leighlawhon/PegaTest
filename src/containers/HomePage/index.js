@@ -20,7 +20,7 @@ class HomePage extends React.Component {
       background = (
         <div className="video-background">
           <div className="overlay"></div>
-          <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
+          <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop" alt="video geometric background">
             <source src="Technology_Background.mp4" type="video/mp4" />
           </video>
         </div>

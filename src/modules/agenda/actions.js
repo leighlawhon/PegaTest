@@ -23,11 +23,11 @@ export function showHideDay(value, invert) {
     }
     daysObj[new Date(value).getTime()] = true;
 
-    return { type: SHOW_HIDE_DAY, hideSpace: true }
+    return { type: SHOW_HIDE_DAY, hideSpace: true, expandClass: "dayView" }
   } else {
     daysObj[new Date(value).getTime()] = !daysObj[new Date(value).getTime()]
     store.dispatch(updateDays(daysObj));
-    return { type: SHOW_HIDE_DAY, hideSpace: false }
+    return { type: SHOW_HIDE_DAY, hideSpace: false, expandClass: "agendaView" }
   }
 
 }

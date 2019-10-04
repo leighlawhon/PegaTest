@@ -40,12 +40,10 @@ class Section extends React.Component {
             >
               <div className="col p-1 text-center">
                 <div className="track">{this.props.event.track}</div>
-                <h3 className="mb-0 mt-1">
-                </h3>
                 {
                   this.props.event.description ?
                     <InfoModal event={this.props.event} buttonLabel={this.props.event.title} /> :
-                    <h3>{this.props.event.title}</h3>
+                    <h3 className="mt-1">{this.props.event.title}</h3>
                 }
                 <p className="m-0">{this.parseTime(this.props.event.startTime, this.props.event.endTime)}</p>
                 <p className="m-0">{this.props.event.location}</p>
@@ -66,7 +64,7 @@ class Section extends React.Component {
               {
                 this.props.event.description ?
                   <InfoModal event={this.props.event} buttonLabel={this.props.event.title} /> :
-                  <h3>{this.props.event.title}</h3>
+                  <h3 className="mt-2">{this.props.event.title}</h3>
               }
               <p className="m-0">{this.parseTime(this.props.event.startTime, this.props.event.endTime)}</p>
               <p className="m-0">{this.props.event.location}</p>
@@ -85,6 +83,7 @@ class Section extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return ({
     screenWidth: state.global.screenWidth,
     agenda: state.agenda,

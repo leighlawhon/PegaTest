@@ -59,9 +59,9 @@ class AgendaTableComponent extends React.Component {
       }
 
       return (
-        <div className="" >
+        <div className="fadeIn animated" >
           {!this.props.hideSpace ? startBuffer : null}
-          <div className="row">
+          <div className="row ">
             <div className="sessions col ">{sessions}</div>
           </div>
           <div className="row">
@@ -106,6 +106,7 @@ class AgendaTableComponent extends React.Component {
     }
   }
   showHideDay(title) {
+    console.log(this.props);
     this.props.showHideDay(title);
   }
   render() {
@@ -116,7 +117,7 @@ class AgendaTableComponent extends React.Component {
     return (
       <div className="container ">
         <AgendaHeaderComponent title={this.props.title} />
-        <div className="row bg-white p-3">
+        <div className={this.props.agenda.expandClass + " row bg-white p-3"}>
           {!this.props.isFetching ?
             this.props.data.map((session, index) => {
               const sesstionTitleDate = new Date(session.title).getTime();
@@ -153,7 +154,8 @@ const mapStateToProps = state => ({
   data: state.global.data,
   isFetching: state.global.isFetching,
   days: state.global.days,
-  hideSpace: state.agenda.hideSpace
+  hideSpace: state.agenda.hideSpace,
+  expandClass: state.expandClass,
 });
 
 const mapDispatchToProps = dispatch => {

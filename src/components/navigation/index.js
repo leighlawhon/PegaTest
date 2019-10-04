@@ -30,9 +30,9 @@ export default class NavigationComponent extends React.Component {
       <div>
         <Navbar dark expand="md" className="bg-blue container-fluid">
           <NavbarBrand href="/" className="bg-white">
-            <img src={Logo} alt="" />
+            <img src={Logo} alt="Pega Logo" />
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle} aria-label="mobile menu" />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

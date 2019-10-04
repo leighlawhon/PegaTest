@@ -33,6 +33,7 @@ class CategoryToggle extends React.Component {
           <DropdownToggle caret>{this.state.value}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem onClick={this.select}>Full Agenda</DropdownItem>
+            <DropdownItem divider></DropdownItem>
             <DropdownItem onClick={this.select}>Travel & Registration</DropdownItem>
             <DropdownItem onClick={this.select}>Breaks & Meals</DropdownItem>
             <DropdownItem onClick={this.select}>PegaWORLD</DropdownItem>

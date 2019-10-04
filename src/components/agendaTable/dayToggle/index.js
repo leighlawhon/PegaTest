@@ -33,7 +33,6 @@ class DayToggle extends React.Component {
     } else {
       this.props.showHideDay(event.target.innerText, true);
     }
-    console.log(this.props)
     this.setState({
       dropdownOpen: !this.state.dropdownOpen,
       value: event.target.innerText
@@ -41,13 +40,14 @@ class DayToggle extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Container>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="pi-btn-primary">
           <DropdownToggle caret>{this.state.value}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem onClick={this.select}>Full Agenda</DropdownItem>
+            <DropdownItem divider></DropdownItem>
+
             {Object.keys(this.props.days).map((item, index) => {
               const date = new Date(parseInt(item));
               return <DropdownItem

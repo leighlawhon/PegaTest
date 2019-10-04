@@ -30,7 +30,6 @@ function receiveData(json) {
   }
 }
 export function updateDays(daysObj) {
-  console.log(daysObj)
   return {
     type: UPDATE_DAYS,
     days: { ...daysObj }
